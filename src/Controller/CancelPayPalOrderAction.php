@@ -37,6 +37,7 @@ final class CancelPayPalOrderAction
 
     public function __invoke(Request $request): Response
     {
+        /** @psalm-suppress RedundantCastGivenDocblockType */
         $content = (array) json_decode((string) $request->getContent(false), true);
 
         $payment = $this->paymentProvider->getByPayPalOrderId((string) $content['payPalOrderId']);

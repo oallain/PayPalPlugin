@@ -29,6 +29,7 @@ final class PayPalPaymentOnErrorAction
 
     public function __invoke(Request $request): Response
     {
+        /** @psalm-suppress RedundantCastGivenDocblockType */
         $this->logger->error((string) $request->getContent());
         FlashBagProvider::getFlashBag($this->flashBagOrRequestStack)
             ->add('error', 'sylius.pay_pal.something_went_wrong')

@@ -62,6 +62,7 @@ final class RefundOrderAction
 
     private function getPayPalPaymentUrl(Request $request): string
     {
+        /** @psalm-suppress RedundantCastGivenDocblockType */
         $content = (array) json_decode((string) $request->getContent(false), true);
         Assert::keyExists($content, 'resource');
         $resource = (array) $content['resource'];
